@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showtime Club</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #111;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: white;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      border: 2px solid black;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 10px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .player-card {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .player-photo {
+      width: 100%;
+      height: 250px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .player-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .player-info {
+      padding: 15px;
+    }
+
+    .about {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: white;
+      border-top: 1px solid #ccc;
+    }
+
+    .scroll-arrow {
+      margin-top: 40px;
+      font-size: 2rem;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(10px);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+
+    <!-- PUT YOUR LOGO HERE -->
+    <div class="logo">
+      <img src="image.png" alt="Showtime Club Logo">
+      <span>Logo</span>
+    </div>
+
+    <h1>Showtime Club</h1>
+    <p>Counter-Strike 2 Team</p>
+
+    <div class="scroll-arrow">↓</div>
+
+  </header>
+
+  <section class="fade-in">
+    <h2 style="text-align:center;">Our Team</h2>
+
+    <div class="team-grid">
+
+      <!-- PLAYER 1 -->
+      <div class="player-card">
+        <div class="player-photo">
+          <!-- <img src="player1.jpg"> -->
+          <span>Photo</span>
+        </div>
+
+        <div class="player-info">
+          <h3>Player One</h3>
+          <p>IGL</p>
+        </div>
+      </div>
+
+      <!-- PLAYER 2 -->
+      <div class="player-card">
+        <div class="player-photo">
+          <!-- <img src="player2.jpg"> -->
+          <span>Photo</span>
+        </div>
+
+        <div class="player-info">
+          <h3>Player Two</h3>
+          <p>AWPer</p>
+        </div>
+      </div>
+
+      <!-- PLAYER 3 -->
+      <div class="player-card">
+        <div class="player-photo">
+          <!-- <img src="player3.jpg"> -->
+          <span>Photo</span>
+        </div>
+
+        <div class="player-info">
+          <h3>Player Three</h3>
+          <p>Entry Fragger</p>
+        </div>
+      </div>
+
+      <!-- PLAYER 4 -->
+      <div class="player-card">
+        <div class="player-photo">
+          <!-- <img src="player4.jpg"> -->
+          <span>Photo</span>
+        </div>
+
+        <div class="player-info">
+          <h3>Player Four</h3>
+          <p>Support</p>
+        </div>
+      </div>
+
+      <!-- PLAYER 5 -->
+      <div class="player-card">
+        <div class="player-photo">
+          <!-- <img src="player5.jpg"> -->
+          <span>Photo</span>
+        </div>
+
+        <div class="player-info">
+          <h3>Player Five</h3>
+          <p>Lurker</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="about">
+      <h2>About Us</h2>
+
+      <p>
+        Showtime Club is a CS2 team focused on improving, competing,
+        and having fun together.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    Showtime Club © 2026
+  </footer>
+
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    function checkScroll() {
+      fadeElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+
+        if (rect.top < window.innerHeight - 100) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll();
+  </script>
+
+</body>
+</html>
